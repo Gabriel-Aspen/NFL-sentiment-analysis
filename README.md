@@ -1,3 +1,5 @@
+![](sbLII.png)
+
 # NFL-sentiment-analysis
 In this project I visualize how the announcer's opinion changes throughout an NFL game using VADER sentiment analysis
 
@@ -18,4 +20,4 @@ I have decided to break the audio into 10 second windows giving us a total of ab
 Once the audio file has been transcribed we determine the sentiment score of each window using [vaderSentiment](https://pypi.org/project/vaderSentiment/). The metric I've chosen is compound because it's aggregation of positive, negative and neutral sentiment. Check out this [Medium Article](https://medium.com/analytics-vidhya/simplifying-social-media-sentiment-analysis-using-vader-in-python-f9e6ec6fc52f) to learn more about using vaderSentiment 
 
 
-![](sbLII.png)
+
