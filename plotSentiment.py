@@ -13,10 +13,8 @@ def rollingMean(scores, window_size = 50):
             scores: pd dataframe of sentiment scores
             rolling_mean: the new rolling mean scores
             minutes: the timestamp of the score in minutes
-
-    to do: try setting df.rolling(center=True)
     '''
-    return scores.rolling(window=window_size).mean() # window size of 50 points
+    return scores.rolling(window=window_size, center=True).mean() # window size of 50 points
 
 def get_sec(time_str):
     '''
@@ -30,7 +28,7 @@ def get_sec(time_str):
     m, s = time_str.split(':')
     return int(m) * 60 + int(s)
 
-def plotSentiment(df):
+def plotSentiment(df, title = ''):
     '''
     Attributes:
         df: DataFrame with columns 'scores', 'rolling_mean' and 'minutes'
@@ -38,5 +36,8 @@ def plotSentiment(df):
         Plot of mean sentiment scores vs time in minutes
     '''
     plt.plot(df.minutes, df.rolling_mean)
+    plt.ylim(-1, 1)
+    plt.title(title)
     plt.xlabel('minutes')
     plt.ylabel('Relative Sentiment')
+    plt.savefig('images/{}.png'.format(title))
