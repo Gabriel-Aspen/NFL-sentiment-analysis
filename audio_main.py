@@ -6,7 +6,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 filepath = 'audiofiles/highlights.wav'
-name = 'XLVII highlights'
+title = 'XLVII highlights'
 
 # making the transcript
 window_size=10 #10 second samples
@@ -23,6 +23,6 @@ def main(filepath):
     df = pd.DataFrame(sentiment, columns= ['sent_scores'])
     df['rolling_mean'] = rollingMean(df.sent_scores, window_size=rolling_mean_window_size)
     df['minutes'] = ((df.index +1) *window_size)/60
-    plotSentiment(df, title = name)
+    plotSentiment(df, title = title)
     #do this for transcript too
 main(filepath)
